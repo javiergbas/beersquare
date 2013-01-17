@@ -1,7 +1,11 @@
 class BeersController < ApplicationController
   # GET /beers
   # GET /beers.json
+
+  before_filter :authenticate_user!
+
   def index
+
     @beers = Beer.all
 
     respond_to do |format|
