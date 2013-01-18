@@ -3,13 +3,21 @@
 <head>
   <title>Beersquare</title>
   <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+<%= render 'shared/header' %>
 
+<div id="wrap">
+<div class="container">
+  <%= yield %>
+  <div id="push"></div> <!-- for sticky footer -->
+</div> <!-- /container -->
+</div> <!-- #wrap -->
 
+<%= render 'shared/footer' %>
+
+<%= javascript_include_tag "application" %>
 </body>
 </html>
