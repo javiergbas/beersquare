@@ -1,11 +1,24 @@
 Beersquare::Application.routes.draw do
-  devise_for :users
 
-  resources :breweries
+  
 
-  resources :beers
+  scope "(:locale)", :locale => /en|es/ do
+    devise_for :users
+    resources :breweries
+    resources :beers
+    match '/' => 'home#index'
+    
+    devise_scope :user do
+      get "sign_in", :to => "devise/sessions#new"
+      get "login", :to => "devise/sessions#new"
+    end
+    
+    
+    root :to => 'home#index'
+  end
 
-  get "home/index"
+
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -56,7 +69,7 @@ Beersquare::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'home#index'
+
 
   # See how all your routes lay out with "rake routes"
 
@@ -64,9 +77,5 @@ Beersquare::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))'
 
-  devise_scope :user do
-    get "sign_in", :to => "devise/sessions#new"
-    get "login", :to => "devise/sessions#new"
-  end
 
 end
