@@ -10,10 +10,15 @@
 
 @import "twitter/bootstrap";
 
-/* Color variables */
+/* Bg color variables */
 @bg-main: white;
 @bg-navbar: #333;
 @bg-footer: #f5f5f5;
+
+/* Text Color variables */
+@color-main: #444;
+@color-navbar: #f5f5f5;
+@color-footer: #777;
 
 /* Sizing variables */
 @navbar-height: 40px;
@@ -32,8 +37,10 @@
 body {
   padding-top: @navbar-height+20px;
   background:@bg-main;
+  color: @color-main;
 }
 .navbar {
+  color: @color-navbar;
   
   .navbar-inner {
     min-height: @navbar-height;
@@ -68,6 +75,7 @@ body {
 }
 #footer {
   background-color: @bg-footer;
+  color:@color-footer;
 }
 
 /* Lastly, apply responsive CSS fixes as necessary */
