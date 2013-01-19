@@ -49,6 +49,37 @@ body {
   
 }
 
+#footer {
+  background-color: @bg-footer;
+
+  .copy {
+    clear: both;
+    overflow: hidden;
+    color: white;
+    color:#333;
+    padding-bottom: 10px;
+
+    span {
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      background: url('pappyrus_copy_dark.png') no-repeat 0 0;
+      position: relative;
+      top:5px;
+
+      &.heart {
+        background-position: -20px 0;
+        margin-left: 2px;
+      }
+
+      &.logo_pappyrus {
+        background-position: -40px 0px;
+        top:3px;
+      }
+    }
+  }
+}
+
 
 /* Sticky footer styles
 -------------------------------------------------- */
@@ -73,10 +104,14 @@ body {
 #footer {
   height: @footer-height;
 }
+<<<<<<< HEAD
 #footer {
   background-color: @bg-footer;
   color:@color-footer;
 }
+=======
+
+>>>>>>> add username and details fileds
 
 /* Lastly, apply responsive CSS fixes as necessary */
 @media (max-width: 767px) {
