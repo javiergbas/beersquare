@@ -4,6 +4,8 @@
 en:
   common:
     welcome: "Welcome"
+    hello: "Hello"
+    profile: "Profile"
   home:
     index:
       title: "Discover the beer world"

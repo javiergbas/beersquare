@@ -4,7 +4,8 @@
 es:
   common:
     welcome: "Bienvenido"
-
+    hello: "Hola"
+    profile: "Perfil"
   home:
     index:
       title: "Descubre el mundo de la cerveza"

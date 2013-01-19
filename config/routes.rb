@@ -3,6 +3,9 @@ Beersquare::Application.routes.draw do
   
 
   scope "(:locale)", :locale => /en|es/ do
+
+    match '/profile' => 'profile#show'
+
     devise_for :users
     resources :breweries
     resources :beers
@@ -12,7 +15,6 @@ Beersquare::Application.routes.draw do
       get "sign_in", :to => "devise/sessions#new"
       get "login", :to => "devise/sessions#new"
     end
-    
     
     root :to => 'home#index'
   end
