@@ -1,27 +1,22 @@
-<h1><%= t 'common.welcome' %></h1>
-<p><%= I18n.locale %></p>
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Country</th>
-    <th>Title</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<%= link_to t('.add_brewery'), new_brewery_path, :class => 'btn btn-primary pull-right' %>
+<h1><%= t '.title' %></h1>
 
+<ul>
 <% @breweries.each do |brewery| %>
-  <tr>
+  <li>
+    <%= link_to brewery.name, brewery %> (<%= brewery.country %>)
+    </br>
+    <%= brewery.title %>
+  </li>
+
+  <!-- <tr>
     <td><%= brewery.name %></td>
     <td><%= brewery.country %></td>
     <td><%= brewery.title %></td>
     <td><%= link_to 'Show', brewery %></td>
     <td><%= link_to 'Edit', edit_brewery_path(brewery) %></td>
     <td><%= link_to 'Destroy', brewery, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+  </tr> -->
 <% end %>
-</table>
+</ul>
 
-<br />
-
-<%= link_to 'New Brewery', new_brewery_path %>

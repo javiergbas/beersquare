@@ -3,9 +3,21 @@
 
 en:
   common:
+    beer: "Beer"
+    beers: "Beers"
+    brewery: "Brewery"
+    breweries: "Breweries"
     welcome: "Welcome"
     hello: "Hello"
     profile: "Profile"
   home:
     index:
       title: "Discover the beer world"
+  beers:
+    index:
+      title: "Beers list"
+      add_beer: "Add beer"
+  breweries:
+    index:
+      title: "Breweries list"
+      add_brewery: "Add brewery"

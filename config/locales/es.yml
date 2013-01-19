@@ -3,9 +3,21 @@
 
 es:
   common:
+    beer: "Cerveza"
+    beers: "Cervezas"
+    brewery: "Cervecería"
+    breweries: "Cervecerías"
     welcome: "Bienvenido"
     hello: "Hola"
     profile: "Perfil"
   home:
     index:
       title: "Descubre el mundo de la cerveza"
+  beers:
+    index:
+      title: "Lista de birras"
+      add_beer: "Añadir cerveza"
+  breweries:
+    index:
+      title: "Lista de cervecerías"
+      add_brewery: "Añadir cervecería"
