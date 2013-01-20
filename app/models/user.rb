@@ -11,8 +11,4 @@ class User < ActiveRecord::Base
   # User likes beers
   has_and_belongs_to_many :beers
 
-  def like?
-    self.beers.find(4)
-  end
-
 end
