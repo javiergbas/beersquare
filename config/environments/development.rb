@@ -33,4 +33,7 @@ Beersquare::Application.configure do
   
   config.i18n.available_locales = ['es', 'en']
 
+  #Images configuration
+  Paperclip.options[:command_path] = "/usr/local/bin/"
+
 end
