@@ -3,5 +3,7 @@
   <h1><%= @brewery.name %> <span class="country">(<%= @brewery.country %>)</span></h1>
   <div class="subtitle"><%= @brewery.title %></div>
 
+  <%= image_tag @brewery.photo.url(:small) %>
+
   <p id="notice"><%= notice %></p>
 </div>

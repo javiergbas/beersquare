@@ -33,3 +33,7 @@ pickle-email-*.html
 
 # Charlies IDE
 /.idea/*
+
+#Photos
+/public/assets/beers
+/public/assets/breweries
