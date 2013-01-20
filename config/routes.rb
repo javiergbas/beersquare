@@ -6,12 +6,14 @@ Beersquare::Application.routes.draw do
 
     match '/profile' => 'profile#show'
 
-    devise_for :users
+    #Facebook Integration
+    devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
     resources :breweries
     resources :beers
     match '/beers/like/:id' => 'beers#like'
     match '/' => 'home#index'
-    
+
+
     devise_scope :user do
       get "sign_in", :to => "devise/sessions#new"
       get "login", :to => "devise/sessions#new"
@@ -19,7 +21,6 @@ Beersquare::Application.routes.draw do
     
     root :to => 'home#index'
   end
-
 
 
 
