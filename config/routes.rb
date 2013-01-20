@@ -9,6 +9,7 @@ Beersquare::Application.routes.draw do
     devise_for :users
     resources :breweries
     resources :beers
+    match '/beers/like/:id' => 'beers#like'
     match '/' => 'home#index'
     
     devise_scope :user do

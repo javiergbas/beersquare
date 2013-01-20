@@ -3,7 +3,6 @@ class BeersController < ApplicationController
   # GET /beers.json
 
   def index
-
     @beers = Beer.all
 
     respond_to do |format|
@@ -16,6 +15,9 @@ class BeersController < ApplicationController
   # GET /beers/1.json
   def show
     @beer = Beer.find(params[:id])
+    @total_likes = @beer.users.count
+    @user_likes = current_user.beers.exists?(@beer.id)
+
 
     respond_to do |format|
       format.html # show.html.erb
@@ -82,4 +84,12 @@ class BeersController < ApplicationController
       format.json { head :ok }
     end
   end
+  
+  def like
+    @beer = Beer.find(params[:id])
+    current_user.beers << @beer unless current_user.beers.exists?(@beer.id)
+
+    redirect_to :action => "show", :id => @beer.id
+  end
+  
 end

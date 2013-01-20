@@ -7,4 +7,12 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :username, :firstname, :lastname, :email, :password, :password_confirmation, :remember_me
+
+  # User likes beers
+  has_and_belongs_to_many :beers
+
+  def like?
+    self.beers.find(4)
+  end
+
 end

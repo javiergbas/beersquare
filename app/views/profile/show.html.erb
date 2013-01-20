@@ -1,1 +1,12 @@
-Hola <%= current_user.firstname %> <%= current_user.lastname %>
+<h1>Hola <%= current_user.firstname %> <%= current_user.lastname %></h1>
+
+<div>
+  <h2>Birras que te molan</h2>
+  <% @beers.each do |beer| %>
+  
+    <%= link_to beer.name, beer %></br>
+  
+  <% end %>
+
+</div>
+
