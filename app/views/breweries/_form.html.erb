@@ -1,35 +1,30 @@
 <%= form_for(@brewery) do |f| %>
-  <% if @brewery.errors.any? %>
-    <div id="error_explanation">
+  <fieldset>
+    <% if @brewery.errors.any? %>
+      <div id="error_explanation">
       <h2><%= pluralize(@brewery.errors.count, "error") %> prohibited this brewery from being saved:</h2>
-
       <ul>
-      <% @brewery.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
+        <% @brewery.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
       </ul>
     </div>
-  <% end %>
+    <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :name %>
     <%= f.text_field :name %>
-  </div>
 
-  <div class="field">
-    <%= f.label :photo %><br />
+    <%= f.label :photo %>
     <%= f.file_field :photo %>
-  </div>
 
-  <div class="field">
-    <%= f.label :country %><br />
+    <%= f.label :country %>
     <%= f.text_field :country %>
-  </div>
-  <div class="field">
-    <%= f.label :title %><br />
+
+    <%= f.label :title %>
     <%= f.text_field :title %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  </fieldset>
 <% end %>

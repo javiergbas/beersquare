@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,13 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-
-ActiveRecord::Schema.define(:version => 20130120171631) do
-
-  create_table "beer_likes", :id => false, :force => true do |t|
-    t.integer "beer_id"
-    t.integer "user_id"
-  end
+ActiveRecord::Schema.define(:version => 20130120165238) do
 
   create_table "beers", :force => true do |t|
     t.string   "name"
@@ -32,16 +27,17 @@ ActiveRecord::Schema.define(:version => 20130120171631) do
     t.datetime "photo_updated_at"
   end
 
+  create_table "beers_users", :id => false, :force => true do |t|
+    t.integer "beer_id"
+    t.integer "user_id"
+  end
+
   create_table "breweries", :force => true do |t|
     t.string   "name"
     t.string   "country"
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "photo_file_name"
-    t.string   "photo_content_type"
-    t.integer  "photo_file_size"
-    t.datetime "photo_updated_at"
   end
 
   create_table "users", :force => true do |t|
@@ -60,6 +56,9 @@ ActiveRecord::Schema.define(:version => 20130120171631) do
     t.string   "username"
     t.string   "firstname"
     t.string   "lastname"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "oauth_token"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
