@@ -30,7 +30,7 @@
   </div>
   <div class="field">
     <%= f.label :brewery_id %><br />
-    <%= f.text_field :brewery_id %>
+    <%= select("beer", "brewery_id", Brewery.all.collect {|b| [ b.name, b.id ] }, {:include_blank => 'Select'}) %>
   </div>
   <div class="actions">
     <%= f.submit %>

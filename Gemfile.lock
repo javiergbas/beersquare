@@ -41,6 +41,9 @@ GEM
       execjs
     coffee-script-source (1.4.0)
     commonjs (0.2.6)
+    countries (0.8.4)
+      currencies (>= 0.4.0)
+    currencies (0.4.0)
     devise (2.2.2)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
@@ -158,6 +161,7 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 3.1.1)
+  countries
   devise
   jquery-rails
   json

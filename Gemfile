@@ -10,6 +10,8 @@ gem 'mysql2'
 
 gem 'json'
 
+gem 'countries'
+
 gem 'therubyracer'
 
 # Gems used only for assets and not required
