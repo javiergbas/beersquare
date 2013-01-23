@@ -1,16 +1,8 @@
 <%= link_to t('.add_beer'), new_beer_path, :class => 'btn btn-primary pull-right' %>
 <h1><%= t '.title' %></h1>
 
-<ul class="beer_list">
-  <% @beers.each do |beer| %>
-    <li>
-    <div class="flag flag-<%= beer.brewery.country.downcase %>"></div>
-      <%= link_to beer.name, beer, :class => 'name' %>
-      <%= link_to beer.brewery.name, beer.brewery, :class => 'brewery' %>
-      <%= link_to (image_tag beer.photo.url(:small)), beer %>
-      <div>Le gusta a <%= beer.total_likes %></div>
-    </li>
-  <% end %>
-</ul>
+<div class="beer_list row-fluid">
+  <%= render :partial => 'shared/beer', :collection => @beers %>
+</div>
 
 

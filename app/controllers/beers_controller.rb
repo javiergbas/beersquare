@@ -27,6 +27,7 @@ class BeersController < ApplicationController
   # GET /beers/new.json
   def new
     @beer = Beer.new
+    @user_id = current_user.id
 
     respond_to do |format|
       format.html # new.html.erb
@@ -37,6 +38,7 @@ class BeersController < ApplicationController
   # GET /beers/1/edit
   def edit
     @beer = Beer.find(params[:id])
+    @user_id = @beer.user_id
   end
 
   # POST /beers

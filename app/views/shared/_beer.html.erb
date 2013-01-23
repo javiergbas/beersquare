@@ -1,0 +1,9 @@
+<div class="span3">
+  <div class="beer">
+    <div class="flag flag-<%= beer.brewery.country.downcase %>"></div>
+    <%= link_to beer.name, beer, :class => 'name' %>
+    <%= link_to beer.brewery.name, beer.brewery, :class => 'brewery' %>
+    <%= link_to (image_tag beer.photo.url(:small)), beer %>
+    <div>Le gusta a <%= beer.total_likes %></div>
+  </div>
+</div>
