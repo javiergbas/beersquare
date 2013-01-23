@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <% if @total_likes>0 %>
-    Le gusta a <%= @total_likes %> personas
+  <% if @beer.total_likes>0 %>
+    Le gusta a <%= @beer.total_likes %> personas
   <% else %>
     Todavía no le gusta a nadie
   <% end %>
@@ -34,7 +34,7 @@
 
 <p>
   <b>Country:</b>
-  <%= @beer.country %>
+  <%= @beer.brewery.country %>
 </p>
 
 

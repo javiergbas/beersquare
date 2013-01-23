@@ -15,9 +15,7 @@ class BeersController < ApplicationController
   # GET /beers/1.json
   def show
     @beer = Beer.find(params[:id])
-    @total_likes = @beer.users.count
     @user_likes = current_user.beers.exists?(@beer.id)
-
 
     respond_to do |format|
       format.html # show.html.erb

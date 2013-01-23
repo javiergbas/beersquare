@@ -15,9 +15,9 @@ en:
       title: "Discover the beer world"
   beers:
     index:
-      title: "Beers list"
+      title: "Beer list"
       add_beer: "Add beer"
   breweries:
     index:
-      title: "Breweries list"
+      title: "Brewery list"
       add_brewery: "Add brewery"
