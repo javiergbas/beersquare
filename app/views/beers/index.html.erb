@@ -1,7 +1,7 @@
 <%= link_to t('.add_beer'), new_beer_path, :class => 'btn btn-primary pull-right' %>
 <h1><%= t '.title' %></h1>
 
-<div class="beer_list row-fluid">
+<div class="beer_list">
   <%= render :partial => 'shared/beer', :collection => @beers %>
 </div>
 

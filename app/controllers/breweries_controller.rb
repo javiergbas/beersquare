@@ -14,6 +14,7 @@ class BreweriesController < ApplicationController
   # GET /breweries/1.json
   def show
     @brewery = Brewery.find(params[:id])
+    @beers = @brewery.beers
 
     respond_to do |format|
       format.html # show.html.erb
