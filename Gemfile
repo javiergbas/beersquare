@@ -29,7 +29,8 @@ gem 'jquery-rails'
 
 #Authetication
 gem 'devise'
-gem 'omniauth-facebook'
+gem 'omniauth'
+gem 'omniauth-facebook', '1.4.0'
 
 #Photos
 gem 'paperclip'

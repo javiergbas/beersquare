@@ -13,6 +13,9 @@ Beersquare::Application.routes.draw do
     match '/beers/like/:id' => 'beers#like'
     match '/' => 'home#index'
 
+    devise_scope :user do
+      get '/users/auth/:provider' => 'users/omniauth_callbacks#passthru'
+    end
 
     devise_scope :user do
       get "sign_in", :to => "devise/sessions#new"
@@ -21,8 +24,6 @@ Beersquare::Application.routes.draw do
     
     root :to => 'home#index'
   end
-
-
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
