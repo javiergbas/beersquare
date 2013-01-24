@@ -11,7 +11,9 @@ class User < ActiveRecord::Base
 
   # User likes beers
   has_many :likes
+  has_many :checks
   has_many :likes_beers, :through => :likes, :source => :beer
+  has_many :checks_beers, :through => :checks, :source => :beer
   #has_and_belongs_to_many :beers
 
 
