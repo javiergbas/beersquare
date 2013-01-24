@@ -10,7 +10,10 @@ class User < ActiveRecord::Base
   attr_accessible :username, :firstname, :lastname, :email, :password, :password_confirmation, :remember_me, :provider, :uid
 
   # User likes beers
-  has_and_belongs_to_many :beers
+  has_many :likes
+  has_many :beers, :through => :likes
+  #has_and_belongs_to_many :beers
+
 
 
   #Facebook Integration

@@ -3,7 +3,10 @@ class Beer < ActiveRecord::Base
   has_one :user
   
   # User likes beers
-  has_and_belongs_to_many :users
+  has_many :likes
+  has_many :users, :through => :likes
+  #has_and_belongs_to_many :users
+
 
   #Images
   has_attached_file :photo, :styles => { :small => "150x150>" },
