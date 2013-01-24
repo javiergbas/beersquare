@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130124202649) do
+ActiveRecord::Schema.define(:version => 20130124204929) do
 
   create_table "beers", :force => true do |t|
     t.string   "name"
@@ -27,11 +27,6 @@ ActiveRecord::Schema.define(:version => 20130124202649) do
     t.integer  "user_id"
   end
 
-  create_table "beers_users", :id => false, :force => true do |t|
-    t.integer "beer_id"
-    t.integer "user_id"
-  end
-
   create_table "breweries", :force => true do |t|
     t.string   "name"
     t.string   "country"
@@ -45,7 +40,8 @@ ActiveRecord::Schema.define(:version => 20130124202649) do
   end
 
   create_table "likes", :force => true do |t|
-    t.integer  "like_id"
+    t.integer  "beer_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -74,13 +70,5 @@ ActiveRecord::Schema.define(:version => 20130124202649) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
-
-  create_table "users_likes_beers", :id => false, :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "beer_id"
-    t.datetime "date_creation"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
 end

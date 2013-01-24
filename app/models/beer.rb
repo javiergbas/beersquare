@@ -4,7 +4,7 @@ class Beer < ActiveRecord::Base
   
   # User likes beers
   has_many :likes
-  has_many :users, :through => :likes
+  has_many :likes_users, :through => :likes, :source => :user
   #has_and_belongs_to_many :users
 
 
