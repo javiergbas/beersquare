@@ -5,5 +5,6 @@
     <%= link_to beer.brewery.name, beer.brewery, :class => 'brewery' %>
     <%= link_to (image_tag beer.photo.url(:small)), beer %>
     <div>Le gusta a <%= beer.total_likes %></div>
+    <div>La han probado <%= beer.total_checks %></div>
   </div>
 </div>

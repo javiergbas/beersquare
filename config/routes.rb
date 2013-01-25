@@ -11,6 +11,7 @@ Beersquare::Application.routes.draw do
     resources :breweries
     resources :beers
     match '/beers/like/:id' => 'beers#like'
+    match '/beers/check/:id' => 'beers#check'
     match '/' => 'home#index'
 
     devise_scope :user do

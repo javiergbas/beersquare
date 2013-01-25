@@ -14,6 +14,19 @@
   <%= link_to 'like', :controller => "beers", :action => "like", :id => @beer.id %>
 <% end %>
 
+<p>
+  <% if @beer.total_checks>0 %>
+    La han probado <%= @beer.total_checks %> personas
+  <% else %>
+    Todavía no la ha probado nadie
+  <% end %>
+</p>
+
+<% if @user_checks %>
+  La has probado
+<% else %>
+  <%= link_to 'check', :controller => "beers", :action => "check", :id => @beer.id %>
+<% end %>
 
 <p>
   <b>Name:</b>

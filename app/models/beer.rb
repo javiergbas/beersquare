@@ -6,7 +6,7 @@ class Beer < ActiveRecord::Base
   has_many :likes
   has_many :checks
   has_many :likes_users, :through => :likes, :source => :user
-  has_many :checks_beers, :through => :checks, :source => :user
+  has_many :checks_users, :through => :checks, :source => :user
   #has_and_belongs_to_many :users
 
 
@@ -23,5 +23,8 @@ class Beer < ActiveRecord::Base
     self.likes_users.count
   end
   
+  def total_checks
+    self.checks_users.count
+  end
 
 end

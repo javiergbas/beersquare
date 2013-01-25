@@ -16,6 +16,7 @@ class BeersController < ApplicationController
   def show
     @beer = Beer.find(params[:id])
     @user_likes = current_user.likes_beers.exists?(@beer.id)
+    @user_checks = current_user.checks_beers.exists?(@beer.id)
 
     respond_to do |format|
       format.html # show.html.erb
@@ -88,6 +89,13 @@ class BeersController < ApplicationController
   def like
     @beer = Beer.find(params[:id])
     current_user.likes_beers << @beer unless current_user.likes_beers.exists?(@beer.id)
+
+    redirect_to :action => "show", :id => @beer.id
+  end
+  
+  def check
+    @beer = Beer.find(params[:id])
+    current_user.checks_beers << @beer unless current_user.checks_beers.exists?(@beer.id)
 
     redirect_to :action => "show", :id => @beer.id
   end
