@@ -15,7 +15,7 @@ class BeersController < ApplicationController
   # GET /beers/1.json
   def show
     @beer = Beer.find(params[:id])
-    @user_likes = current_user.beers.exists?(@beer.id)
+    @user_likes = current_user.likes_beers.exists?(@beer.id)
 
     respond_to do |format|
       format.html # show.html.erb
@@ -87,7 +87,7 @@ class BeersController < ApplicationController
   
   def like
     @beer = Beer.find(params[:id])
-    current_user.beers << @beer unless current_user.beers.exists?(@beer.id)
+    current_user.likes_beers << @beer unless current_user.likes_beers.exists?(@beer.id)
 
     redirect_to :action => "show", :id => @beer.id
   end

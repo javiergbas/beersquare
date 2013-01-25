@@ -20,7 +20,8 @@ class Beer < ActiveRecord::Base
   validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png']
 
   def total_likes
-    self.users.count
+    self.likes_users.count
   end
+  
 
 end
