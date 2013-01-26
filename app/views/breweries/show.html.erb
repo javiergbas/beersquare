@@ -5,10 +5,15 @@
   <h1><%= @brewery.name %> <span class="country">(<%= @brewery.country %>)</span></h1>
   <div class="subtitle"><%= @brewery.title %></div>
 
-  <%= image_tag @brewery.photo.url(:small) %>
+
+  <div class="hide" id="brew_map" style="width:100%; height:300px;"></div>
+  <input type="hidden" value="<%= @brewery.latitude %>" id="brew_lat"/>
+  <input type="hidden" value="<%= @brewery.longitude %>" id="brew_lgt"/>
 
   <h2>Cervezas de esta marca:</h2>
-  
+
+
+
   <div class="beer_list">
     <%= render :partial => 'shared/beer', :collection => @beers %>
   </div>

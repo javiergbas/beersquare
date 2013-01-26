@@ -1,6 +1,8 @@
 class Brewery < ActiveRecord::Base
   has_many :beers, :dependent => :destroy
 
+  attr_accessible :name, :country, :title, :latitude, :longitude
+
   #Images
   has_attached_file :photo, :styles => { :small => "150x150>" },
                     :url  => "/assets/breweries/:id/:style/:basename.:extension",
