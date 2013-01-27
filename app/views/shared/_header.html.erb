@@ -1,10 +1,10 @@
-<div class="navbar navbar-inverse navbar-fixed-top">
+<div class="navbar">
   <div class="navbar-inner">
     <div class="container">
       
-      <div class="pull-right">
+      <div class="user_menu pull-right">
         <% if user_signed_in? %>
-          <%= t 'common.hello' %> <%= current_user.username %> |
+          <span><%= t 'common.hello' %> <%= current_user.username %></span> |
           <%= link_to t('common.profile'), profile_path %> |
           <%= link_to 'Logout', destroy_user_session_path, :method => :delete %> 
         <% else %>
@@ -17,7 +17,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </a>
-      <%= link_to 'Beersquare', root_path, :class => 'brand' %>
+      <%= link_to 'Beersquare', root_path, :class => 'brand', :title => 'Home' %>
       <div class="nav-collapse collapse">
         <ul class="nav">
           <li class="<%= 'active' if params[:controller] == 'beers' %>"><%= link_to t('common.beers'), beers_path %></li>
@@ -27,3 +27,5 @@
     </div> <!-- .container -->
   </div> <!-- .navbar-inner -->
 </div> <!-- .navbar -->
+
+

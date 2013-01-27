@@ -13,18 +13,18 @@
 @import "flags.css";
 
 /* Bg color variables */
-@bg-main: #f8f8f8;
-@bg-navbar: #333;
-@bg-footer: #f5f5f5;
+@bg-main: #F3EDDD;
+@bg-navbar: #666;
+@bg-footer: #222;
 
 /* Text Color variables */
 @color-main: #444;
 @color-navbar: #f5f5f5;
-@color-footer: #777;
+@color-footer: #eee;
 
 /* Sizing variables */
-@navbar-height: 40px;
-@footer-height: 60px;
+@navbar-height: 70px;
+@footer-height: 80px;
 
 
 * {
@@ -37,24 +37,91 @@
 
 
 body {
-  padding-top: @navbar-height+20px;
-  background:@bg-main!important;
+  padding-top: 60px;
+  background:@bg-main url(bg.png) repeat!important;
   color: @color-main!important;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif!important;
+  font-family: "Myriad Pro", "Helvetica Neue", Arial, sans-serif!important;
 }
+
 .navbar {
   color: @color-navbar;
+  margin-bottom:60px;
   
   .navbar-inner {
-    min-height: @navbar-height;
-    background: @bg-navbar;
+    height: @navbar-height;
+    padding: 16px 0;
+    background: @bg-navbar url(bg_nav.png) repeat-x;
+    .border-radius(0px);
+    border:none;
+    position:relative;
+    
+    .container {
+      padding:0 30px;
+    }
+    
+    .brand {
+      position:absolute;
+      display:block;
+      top:-45px;
+      left:50px;
+      .square(162px);
+      background: url(sprite.png) no-repeat;
+      text-indent:-9999px;
+    }
+    
+    .nav {
+      left:200px;
+      font-family: 'Lobster', cursive;
+      font-size:24px;
+      letter-spacing: 1px;
+      
+    }
+    
+    .nav, .user_menu {
+      line-height:40px;
+      
+      a {
+        color:white;
+        text-shadow: 2px 2px 1px rgba(0,0,0,0.45);
+        padding:0 20px;
+        line-height:40px;
+        opacity:0.95;
+        .transition(all 0.2s ease);
+        
+        &:hover {
+          color:white;
+          text-shadow: 3px 3px 1px rgba(0,0,0,0.6);
+          background:transparent;
+          text-decoration:none;
+          opacity:1;
+        }
+        
+      }
+      
+    }
+    
+    .user_menu {
+      line-height:46px;
+
+      a,span {
+        padding:0 6px;
+      }
+
+      span {
+        color:white;
+        text-shadow: 2px 2px 1px rgba(0,0,0,0.45);
+        opacity:0.95;
+      }
+
+    }
+    
   }
   
 }
 
 .beer_list {
   list-style: none;
-  text-align:center;
+  text-align: left;
   
   .beer_wrapper {
     width: 20%;
@@ -124,33 +191,69 @@ body {
 
 #footer {
   background-color: @bg-footer;
+  color:@color-footer;
+  padding:14px 0;
+
+  a {
+    color:white;
+    opacity:0.8;
+    .transition(all 0.2s ease);
+
+    &:hover {
+      color:white;
+      opacity:1;
+      text-decoration:none;
+    }
+    
+  }
+
+  .footer-top, .footer-bottom {
+    margin-bottom:14px;
+  }
+
+  .copyright {
+    font-size:20px;
+  }
+
+  ul {
+    list-style:none;
+    margin-left:0;
+    
+    li {
+      display:inline-block;
+      margin-right:15px;
+    }
+    
+  }
 
   .copy {
     clear: both;
     overflow: hidden;
-    color: white;
-    color:#333;
     padding-bottom: 10px;
 
     span {
       display: inline-block;
-      width: 18px;
+      width: 16px;
       height: 18px;
-      background: url('pappyrus_copy_dark.png') no-repeat 0 0;
+      background: url('pappyrus_copy.png') no-repeat 0 0;
       position: relative;
-      top:5px;
+      margin:0 3px;
+      opacity:0.9;
 
       &.heart {
         background-position: -20px 0;
-        margin-left: 2px;
       }
 
       &.logo_pappyrus {
         background-position: -40px 0px;
-        top:3px;
+        top:-2px;
+        margin-left:10px;
       }
+      
     }
+
   }
+
 }
 
 

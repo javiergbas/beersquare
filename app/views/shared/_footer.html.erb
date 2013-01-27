@@ -1,17 +1,29 @@
 <div id="footer">
  <div class="container">
 
-   <!--Pappyrus-->
-   <div class="copy">
-     <div class="pull-left">Pappyrus soluciones web &copy; 2013</div>
-     <div class="pull-right">Creado con <span class="coffee"></span> y <span class="heart"></span> en Madrid</div>
-   </div><!-- .copy -->
-
-   <div class="pull-left">
+  <div class="footer-top">
+    <div class="pull-right">
       <%= link_to "Español", params.merge({:locale => :es}) %>
        |
       <%= link_to "English", params.merge({:locale => :en}) %>
-   </div>
+    </div>
+    
+    <div class="copyright">
+      Birralist &copy; 2013
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class=" copy pull-right">
+      Creado con <span class="coffee"></span> y <span class="heart"></span> en Madrid <a href="http://www.pappyrus.es" target="_blank"><span class="logo_pappyrus"></span>Pappyrus web</a>
+    </div>
+    
+    <ul>
+      <li>Aviso legal</li>
+      <li>Contacto</li>
+    </ul>
+    
+  </div>
    
  </div><!-- .container -->
 </div><!-- #footer -->
