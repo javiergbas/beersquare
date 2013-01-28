@@ -1,6 +1,15 @@
+<div id="home">
+  <h1><%= t '.title' %></h1>
 
-<h1><%= t '.title' %></h1>
 
-<p>Find me in app/views/home/index.html.erb</p>
+  <h2>
+    <%= link_to t('common.view_all'), beers_path, :class => 'pull-right' %>
+    <%= t 'common.recently_added' %>
+  </h2>
 
-<%= link_to "Beer list", beers_path %>
+  <div class="beer_list">
+    <%= render :partial => 'shared/beer', :collection => @most_popular %>
+  </div>
+
+</div>
+

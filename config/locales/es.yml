@@ -10,6 +10,8 @@ es:
     welcome: "Bienvenido"
     hello: "Hola"
     profile: "Perfil"
+    view_all: "Ver todas"
+    recently_added: "Añadidas recientemente"
   home:
     index:
       title: "Descubre el mundo de la cerveza"
