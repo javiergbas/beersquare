@@ -1,0 +1,11 @@
+
+<h2>Beers you like</h2>
+<div class="beer_list">
+  <%= render :partial => 'shared/beer', :collection => @beers_like %>
+</div>
+
+<h2>Beers you have check</h2>
+<div class="beer_list">
+  <%= render :partial => 'shared/beer', :collection => @beers_check %>
+</div>
+
