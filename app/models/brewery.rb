@@ -1,7 +1,7 @@
 class Brewery < ActiveRecord::Base
   has_many :beers, :dependent => :destroy
 
-  attr_accessible :name, :country, :title, :latitude, :longitude
+  attr_accessible :name, :country, :latitude, :longitude, :state, :city, :address, :zip_code
 
   #Images
   has_attached_file :photo, :styles => { :small => "150x150>" },

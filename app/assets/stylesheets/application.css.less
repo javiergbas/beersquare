@@ -28,6 +28,12 @@
 @footer-height: 80px;
 
 
+/* Font Sizes */
+@font-size-h1: 30px;
+@font-size-h2: 22px;
+
+@font-size-label: 16px;
+
 * {
   .box-sizing(border-box);
 /*  position:relative;*/
@@ -42,6 +48,47 @@ body {
   background:@bg-main url(bg.png) repeat!important;
   color: @color-main!important;
   font-family: "Myriad Pro", "Helvetica Neue", Arial, sans-serif!important;
+
+  input {
+    height: @font-size-h1!important;
+  }
+
+  h1 {
+    font-weight: normal;
+    font-size: @font-size-h1;
+    span{
+      margin-left: 10px;
+      font-size: @font-size-h2;
+      color:@color-light_text;
+      vertical-align: bottom!important;
+    }
+  }
+
+  h2 {
+    font-weight:normal;
+    border-bottom: 1px solid #ccc;
+    color:@color-light_text;
+    font-size: @font-size-h2;
+    position:relative;
+
+    a {
+      font-size: 14px;
+      line-height: 1;
+      position: absolute;
+      right: 0;
+      bottom: 6px;
+      color:@color-light_text;
+    }
+  }
+
+  .label-right{
+    text-align: right;
+    width: 100%;
+    color:@color-main;
+    margin-right: 10px;
+    font-size: @font-size-label;
+  }
+
 }
 
 a:hover, a:active {
@@ -130,25 +177,7 @@ a:hover, a:active {
   border:1px solid #999;
   .border-radius(14px 14px 0 0);
   padding:30px 20px;
-  
-  h2 {
-    font-weight:normal;
-    border-bottom: 1px solid #ccc;
-    color:@color-light_text;
-    font-size:22px;
-    position:relative;
-    
-    a {
-      font-size: 14px;
-      line-height: 1;
-      position: absolute;
-      right: 0;
-      bottom: 6px;
-      color:@color-light_text;
-    }
-    
-  }
-  
+
 }
 
 #home {

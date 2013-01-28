@@ -12,6 +12,9 @@ en:
     profile: "Profile"
     view_all: "View all"
     recently_added: "Recently added"
+    edit: "Edit"
+    logout: "Logout"
+    login: "Login"
   home:
     index:
       title: "Discover the beer world"
@@ -23,3 +26,7 @@ en:
     index:
       title: "Brewery list"
       add_brewery: "Add brewery"
+    show:
+      country: "País"
+      state: "State"
+      city: "City"
