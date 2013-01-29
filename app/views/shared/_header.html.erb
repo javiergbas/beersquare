@@ -22,7 +22,7 @@
         <ul class="nav">
           <li class="<%= 'active' if params[:controller] == 'beers' %>"><%= link_to t('common.beers'), beers_path %></li>
           <li class="<%= 'active' if params[:controller] == 'breweries' %>"><%= link_to t('common.breweries'), breweries_path %></li>
-          <li class="<%= 'active' if params[:controller] == 'profile' && params[:action] == 'checklist' %>"><%= link_to t('common.checklist'), :controller => "profile", :action => "checklist" %></li>
+          <li class="<%= 'active' if params[:controller] == 'profile' && params[:action] == 'checklist' %>"><%= link_to t('common.checklist'), :controller => "/profile", :action => "checklist" %></li>
         </ul>
       </div><!--/.nav-collapse -->
     </div> <!-- .container -->
