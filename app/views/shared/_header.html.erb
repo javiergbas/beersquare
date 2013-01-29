@@ -17,8 +17,8 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </a>
-      <%= link_to 'Beersquare', root_path, :class => 'brand', :title => 'Home' %>
       <div class="nav-collapse collapse">
+        <%= link_to 'Beersquare', root_path, :class => 'brand', :title => 'Home' %>
         <ul class="nav">
           <li class="<%= 'active' if params[:controller] == 'beers' %>"><%= link_to t('common.beers'), beers_path %></li>
           <li class="<%= 'active' if params[:controller] == 'breweries' %>"><%= link_to t('common.breweries'), breweries_path %></li>

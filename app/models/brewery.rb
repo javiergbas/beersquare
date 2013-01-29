@@ -1,10 +1,10 @@
 class Brewery < ActiveRecord::Base
   has_many :beers, :dependent => :destroy
 
-  attr_accessible :name, :country, :latitude, :longitude, :state, :city, :address, :zip_code
+  attr_accessible :name, :country, :latitude, :longitude, :state, :city, :address, :zip_code, :photo
 
   #Images
-  has_attached_file :photo, :styles => { :small => "150x150>" },
+  has_attached_file :photo, :styles => { :medium => "940x240", :small => "150x150>" },
                     :url  => "/assets/breweries/:id/:style/:basename.:extension",
                     :path => ":rails_root/public/assets/breweries/:id/:style/:basename.:extension"
 

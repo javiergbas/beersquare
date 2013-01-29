@@ -15,7 +15,7 @@ function showMap(lat, long) {
 }
 
 $(function(){
-
+    alert('ashfklsaf');
     var lat = $('#brew_lat').val();
     var lgt = $('#brew_lgt').val();
     if (lat && lgt)

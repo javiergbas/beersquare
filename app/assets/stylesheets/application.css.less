@@ -31,8 +31,11 @@
 /* Font Sizes */
 @font-size-h1: 30px;
 @font-size-h2: 22px;
-
 @font-size-label: 16px;
+
+
+/* Photo Sizes */
+@photo-cover-height: 240px;
 
 * {
   .box-sizing(border-box);
@@ -42,6 +45,9 @@
   vertical-align: middle;
 }
 
+paddingFix{
+  padding: 10px;
+}
 
 body {
   padding-top: 60px;
@@ -91,7 +97,7 @@ body {
 
   .label-right{
     text-align: right;
-    width: 100%;
+    float:right;
     color:@color-main;
     margin-right: 10px;
     font-size: @font-size-label;
@@ -263,6 +269,20 @@ a:hover, a:active {
     
   }
   
+}
+
+.brewery-cover{
+  overflow: hidden;
+  height: @photo-cover-height;
+
+  img{
+    width:100%;
+    height: auto;
+  }
+}
+
+.brewery-info{
+  margin-top: 20px;
 }
 
 #footer {
