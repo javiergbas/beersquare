@@ -15,8 +15,6 @@ class BeersController < ApplicationController
   # GET /beers/1.json
   def show
     @beer = Beer.find(params[:id])
-    @user_likes = current_user.likes_beers.exists?(@beer.id) if user_signed_in?
-    @user_checks = current_user.checks_beers.exists?(@beer.id) if user_signed_in?
 
     respond_to do |format|
       format.html # show.html.erb

@@ -8,7 +8,7 @@
   <% end %>
 </p>
 
-<% if @user_likes %>
+<% if current_user_likes_beer(@beer) %>
   Te gusta!
 <% else %>
   <%= link_to 'like', :controller => "beers", :action => "like", :id => @beer.id %>
@@ -22,7 +22,7 @@
   <% end %>
 </p>
 
-<% if @user_checks %>
+<% if current_user_checks_beer(@beer) %>
   La has probado
 <% else %>
   <%= link_to 'check', :controller => "beers", :action => "check", :id => @beer.id %>

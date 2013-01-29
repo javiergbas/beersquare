@@ -7,7 +7,7 @@
   <p id="notice"><%= notice %></p>
   
   <%= link_to t('common.edit'), edit_brewery_path(@brewery), :class => 'btn pull-right' %>
-  <h1><%= @brewery.name %><span><%= @brewery.city %>, <%= @brewery.state %></span></h1>
+  <h1><div class="flag flag-<%= @brewery.country.downcase %>"></div><%= @brewery.name %></h1>
 
   <div class="row-fluid">
     <div class="span6">

@@ -56,12 +56,20 @@ body {
   h1 {
     font-weight: normal;
     font-size: @font-size-h1;
+    
+    .flag {
+      display: inline-block;
+      margin: 12px 10px 0 0;
+      vertical-align: top;
+    }
+    
     span{
       margin-left: 10px;
       font-size: @font-size-h2;
       color:@color-light_text;
       vertical-align: bottom!important;
     }
+    
   }
 
   h2 {
@@ -212,28 +220,24 @@ a:hover, a:active {
       position:relative;
       margin-bottom:20px;
     
-      &:hover {
-        .box-shadow(2px 2px 3px rgba(0,0,0,0.3));
-        top:-1px;
-        left:-1px
+      .check {
+        width:69px;
+        height:60px;
+        position:absolute;
+        top: -22px;
+        right: -35px;
+        background:transparent url('check.png') no-repeat;
       }
     
       .flag {
-        position:absolute;
-        top:15px;
-        right:15px;
-      }
-    
-      a {
-        display:block;
-      
-        &:hover {
-          background:transparent;
-        }
-      
+        display:inline-block;
+        margin-right: 4px;
+        position: relative;
+        top: -2px;
       }
     
       .name {
+        display:block;
         text-align:left;
         font-size:16px;
         color:@color-main;
@@ -246,6 +250,7 @@ a:hover, a:active {
       }
     
       .brewery {
+        display:block;
         text-align:left;
         color: lighten(@color-main, 30%)
       }
