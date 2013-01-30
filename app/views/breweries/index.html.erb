@@ -1,5 +1,7 @@
-<%= link_to t('.add_brewery'), new_brewery_path, :class => 'btn btn-primary pull-right' %>
-<h1><%= t '.title' %></h1>
+<h1>
+  <%= link_to t('.add_brewery'), new_brewery_path, :class => 'button primary pull-right' %>
+  <%= t '.title' %>
+</h1>
 
 <ul>
 <% @breweries.each do |brewery| %>

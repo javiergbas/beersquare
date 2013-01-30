@@ -26,7 +26,7 @@ class BeersController < ApplicationController
   # GET /beers/new.json
   def new
     @beer = Beer.new
-    @user_id = current_user.id
+    @user_id = current_user.id if user_signed_in?
 
     respond_to do |format|
       format.html # new.html.erb
