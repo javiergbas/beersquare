@@ -10,6 +10,16 @@
 </head>
 <body>
 
+<% if flash[:notice] %>
+  <div class="notice-wrapper">
+    <div class="notice">
+      <i class="icon-remove icon-white pull-right"></i>
+      <%= flash[:notice] %>
+    </div>
+  </div>
+<% end %>
+
+
 <%= render 'shared/header' %>
 
 

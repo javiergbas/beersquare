@@ -1,11 +1,11 @@
-<div class="beer_wrapper">
+<div class="beer-wrapper">
   <div class="beer">
     <% if current_user_checks_beer(beer) -%>
       <div class="check"></div>
     <% end -%>
     
     <div class="beer-hover">
-      <div class="button_wrapper">
+      <div class="button-wrapper">
         <% if current_user_checks_beer(beer) %>
           <div class="button primary"><%= t'common.checked' %></div>
           <%= link_to t('common.uncheck'), {:controller => "beers", :action => "uncheck", :id => beer.id}, :class => 'button red' %>
@@ -15,25 +15,11 @@
       </div> <!-- button_wrapper -->
       
       
-      <div class="button_wrapper">
-        <!-- <% if current_user_likes_beer(beer) %>
-          <div class="button seconary"><%= t'common.liked' %></div>
-        <% else %>
-          <%= link_to t('common.like'), {:controller => "beers", :action => "like", :id => beer.id}, :class => 'button secondary' %>
-        <% end %> -->
-      
-        <%= link_to t('common.view'), {:controller => "beers", :action => "show", :id => beer.id}, :class => 'button secondary' %>
+      <div class="button-wrapper">
+        <%= link_to t('common.view'), beer, :class => 'button secondary' %>
       </div> <!-- button_wrapper -->
       
-    </div>
-    
-    <%#= link_to beer.name, beer, :class => 'name' %>
-    <!-- <%= link_to beer, :class => 'name' do %>
-          <div class="flag flag-<%= beer.brewery.country.downcase %>"></div>
-          <%= beer.name %>
-        <% end %>
-        <%= link_to beer.brewery.name, beer.brewery, :class => 'brewery' %>
-        <%= link_to (image_tag beer.photo.url(:small)), beer %> -->
+    </div> <!-- .beer-hover -->
     
     <div class="name">
       <div class="flag flag-<%= beer.brewery.country.downcase %>"></div>

@@ -11,7 +11,7 @@ class Beer < ActiveRecord::Base
 
 
   #Images
-  has_attached_file :photo, :styles => { :small => "150x150>" },
+  has_attached_file :photo, :styles => { :small => "150x150>", :medium => "300x300>" },
                     :url  => "/assets/beers/:id/:style/:basename.:extension",
                     :path => ":rails_root/public/assets/beers/:id/:style/:basename.:extension"
 

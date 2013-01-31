@@ -95,7 +95,7 @@ class BeersController < ApplicationController
   
   def unlike
     @beer = Beer.find(params[:id])
-    current_user.likes_beers.delete(@beer) unless current_user.likes_beers.exists?(@beer.id)
+    current_user.likes_beers.delete(@beer) if current_user.likes_beers.exists?(@beer.id)
 
     redirect_to :action => "show", :id => @beer.id
   end
@@ -103,6 +103,7 @@ class BeersController < ApplicationController
   def check
     @beer = Beer.find(params[:id])
     current_user.checks_beers << @beer unless current_user.checks_beers.exists?(@beer.id)
+    flash[:notice] = 'Beer was successfully created.'
 
     redirect_to :action => "show", :id => @beer.id
   end

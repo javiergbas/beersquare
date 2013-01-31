@@ -8,3 +8,15 @@
 //= require jquery_ujs
 //= require twitter/bootstrap.js
 //= require_tree .
+
+
+$(function(){
+  
+  $('.notice_wrapper').fadeIn().delay(3000).fadeOut();
+  
+  $('.notice_wrapper .icon-remove').click(function(){
+    $('.notice_wrapper').fadeOut();
+  });
+  
+});
+

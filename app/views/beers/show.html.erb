@@ -1,55 +1,60 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <% if @beer.total_likes>0 %>
-    Le gusta a <%= @beer.total_likes %> personas
-  <% else %>
-    Todavía no le gusta a nadie
-  <% end %>
-</p>
+<div class="row-fluid beer">
+  
+  <div class="span8">
+    <h1><div class="flag flag-<%= @beer.brewery.country.downcase %>"></div><%= @beer.name %></h1>
+    <div class="subtitle"><%= @beer.brewery.name %></div>
+    
+    <div class="button-wrapper">
+      <% if current_user_checks_beer(@beer) %>
+        <div class="button primary big"><%= t'common.checked' %></div>
+        <%= link_to t('common.uncheck'), {:controller => "beers", :action => "uncheck", :id => @beer.id}, :class => 'button red big' %>
+      <% else %>
+        <%= link_to t('common.check'), {:controller => "beers", :action => "check", :id => @beer.id}, :class => 'button primary big' %>
+      <% end %>
+    </div> <!-- button_wrapper -->
+     
+    <div class="button-wrapper">
+      <% if current_user_likes_beer(@beer) %>
+        <div class="button secondary big"><%= t'common.liked' %></div>
+        <%= link_to t('common.unlike'), {:controller => "beers", :action => "unlike", :id => @beer.id}, :class => 'button red big' %>
+      <% else %>
+        <%= link_to t('common.like'), {:controller => "beers", :action => "like", :id => @beer.id}, :class => 'button secondary big' %>
+      <% end %>
 
-<% if current_user_likes_beer(@beer) %>
-  Te gusta!
-<% else %>
-  <%= link_to 'like', :controller => "beers", :action => "like", :id => @beer.id %>
-<% end %>
-
-<p>
-  <% if @beer.total_checks>0 %>
-    La han probado <%= @beer.total_checks %> personas
-  <% else %>
-    Todavía no la ha probado nadie
-  <% end %>
-</p>
-
-<% if current_user_checks_beer(@beer) %>
-  La has probado
-<% else %>
-  <%= link_to 'check', :controller => "beers", :action => "check", :id => @beer.id %>
-<% end %>
-
-<p>
-  <b>Name:</b>
-  <%= @beer.name %>
-</p>
-
-<%= image_tag @beer.photo.url(:small) %>
-
-<p>
-  <b>Title:</b>
-  <%= @beer.title %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%= @beer.description %>
-</p>
-
-<p>
-  <b>Country:</b>
-  <%= @beer.brewery.country %>
-</p>
+    </div> <!-- button_wrapper -->
+    
+    <div class="row-fluid beer-info">
+      <div class="span6 ">
+        <div class="form-inline">
+          <div class="row-fluid">
+            <div class="span6"><span class="label-right"><%= t('.country') %></span></div>
+            <div class="span6"><span><%= @beer.brewery.country %></span></div>
+          </div>
+          <div class="row-fluid">
+            <div class="span6"><span class="label-right"><%= t('.description') %></span></div>
+            <div class="span6"><span><%= @beer.description %></span></div>
+          </div>
+        </div>
+      </div>
+    </div> <!-- beer-info -->
+    
+    
+  </div> <!-- span8 -->
+  
+  <div class="span4">
+    <div class="images-wrapper">
+    <% if current_user_checks_beer(@beer) -%>
+      <div class="check"></div>
+    <% end -%>
+    
+    <%= image_tag @beer.photo.url(:small) %>
+    </div><!-- images-wrapper -->
+  </div> <!-- span4 -->
+  
+</div><!-- row -->
 
 
-<%= link_to 'Edit', edit_beer_path(@beer) %> |
-<%= link_to 'Back', beers_path %>
+
+
+<%= link_to 'Edit', edit_beer_path(@beer) %>
