@@ -5,17 +5,25 @@
     <% end -%>
     
     <div class="beer-hover">
-      <% if current_user_checks_beer(beer) %>
-        <div class="button primary"><%= t'common.checked' %></div>
-      <% else %>
-        <%= link_to t('common.check'), {:controller => "beers", :action => "check", :id => beer.id}, :class => 'button primary' %>
-      <% end %>
+      <div class="button_wrapper">
+        <% if current_user_checks_beer(beer) %>
+          <div class="button primary"><%= t'common.checked' %></div>
+          <%= link_to t('common.uncheck'), {:controller => "beers", :action => "uncheck", :id => beer.id}, :class => 'button red' %>
+        <% else %>
+          <%= link_to t('common.check'), {:controller => "beers", :action => "check", :id => beer.id}, :class => 'button primary' %>
+        <% end %>
+      </div> <!-- button_wrapper -->
       
-      <% if current_user_likes_beer(beer) %>
-        <div class="button seconary"><%= t'common.liked' %></div>
-      <% else %>
-        <%= link_to t('common.like'), {:controller => "beers", :action => "like", :id => beer.id}, :class => 'button secondary' %>
-      <% end %>
+      
+      <div class="button_wrapper">
+        <!-- <% if current_user_likes_beer(beer) %>
+          <div class="button seconary"><%= t'common.liked' %></div>
+        <% else %>
+          <%= link_to t('common.like'), {:controller => "beers", :action => "like", :id => beer.id}, :class => 'button secondary' %>
+        <% end %> -->
+      
+        <%= link_to t('common.view'), {:controller => "beers", :action => "show", :id => beer.id}, :class => 'button secondary' %>
+      </div> <!-- button_wrapper -->
       
     </div>
     

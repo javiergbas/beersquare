@@ -11,7 +11,9 @@ Beersquare::Application.routes.draw do
     resources :breweries
     resources :beers
     match '/beers/like/:id' => 'beers#like'
+    match '/beers/unlike/:id' => 'beers#unlike'
     match '/beers/check/:id' => 'beers#check'
+    match '/beers/uncheck/:id' => 'beers#uncheck'
     match '/checklist' => 'profile#checklist'
     match '/' => 'home#index'
 
