@@ -22,10 +22,12 @@
     </div> <!-- .beer-hover -->
     
     <div class="name">
-      <div class="flag flag-<%= beer.brewery.country.downcase %>"></div>
+      <% if beer_country(beer) %>
+        <div class="flag flag-<%= beer_country(beer).downcase %>"></div>
+      <% end %>
       <%= beer.name %>
     </div>
-    <div class="brewery"><%= beer.brewery.name %></div>
+    <div class="brewery"><%= beer.brewery.name unless beer.brewery.blank? %></div>
     <%= image_tag beer.photo.url(:small) %>
     
     <div>Le gusta a <%= beer.total_likes %></div>

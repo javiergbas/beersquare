@@ -1,9 +1,18 @@
 
-<div class="row-fluid beer">
+<div class="show_beer row-fluid">
   
   <div class="span8">
-    <h1><div class="flag flag-<%= @beer.brewery.country.downcase %>"></div><%= @beer.name %></h1>
-    <div class="subtitle"><%= @beer.brewery.name %></div>
+    <h1>
+      <% if beer_country(@beer) %>
+        <div class="flag flag-<%= beer_country(@beer).downcase %>"></div>
+      <% end %>
+      
+      <%= @beer.name %>
+    </h1>
+    
+    <% unless @beer.brewery.blank? -%>
+      <div class="brewery"><%= link_to @beer.brewery.name, @beer.brewery %></div>
+    <% end -%>
     
     <div class="button-wrapper">
       <% if current_user_checks_beer(@beer) %>
@@ -29,7 +38,7 @@
         <div class="form-inline">
           <div class="row-fluid">
             <div class="span6"><span class="label-right"><%= t('.country') %></span></div>
-            <div class="span6"><span><%= @beer.brewery.country %></span></div>
+            <div class="span6"><span><%= @beer.country %></span></div>
           </div>
           <div class="row-fluid">
             <div class="span6"><span class="label-right"><%= t('.description') %></span></div>
@@ -48,7 +57,7 @@
       <div class="check"></div>
     <% end -%>
     
-    <%= image_tag @beer.photo.url(:small) %>
+    <%= image_tag @beer.photo.url(:medium) %>
     </div><!-- images-wrapper -->
   </div> <!-- span4 -->
   

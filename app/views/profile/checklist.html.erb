@@ -1,8 +1,9 @@
 
-<h2>Beers you like</h2>
-<div class="beer_list">
-  <%= render :partial => 'shared/beer', :collection => @beers_like %>
-</div>
+
+<p>You have checked <%= @beers_check.count %> beers out of <%= total_beers %> (<%= (@beers_check.count*100/total_beers) %>%).</p>
+
+<p>You have checked <%= current_user_total_countries %> countries</p>
+
 
 <h2>Beers you have check</h2>
 <div class="beer_list">

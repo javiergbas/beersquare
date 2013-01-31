@@ -15,6 +15,12 @@
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
+  
+  <div class="field">
+    <%= f.label :country %>
+    <%= select("beer", "country", Country.all {|c| [ c[0], c[1] ] }, {:include_blank => 'Select'}) %>
+  </div>
+  
   <div class="field">
     <%= f.label :photo %><br />
     <%= f.file_field :photo %>
