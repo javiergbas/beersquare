@@ -3,6 +3,7 @@
 
 en:
   common:
+    address: "Address"
     beer: "Beer"
     beers: "Beers"
     brewery: "Brewery"

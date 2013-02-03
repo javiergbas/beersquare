@@ -3,6 +3,7 @@
 
 es:
   common:
+    address: "Dirección"
     beer: "Cerveza"
     beers: "Cervezas"
     brewery: "Cervecería"

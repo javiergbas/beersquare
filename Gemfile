@@ -27,6 +27,9 @@ end
 gem 'jquery-rails'
 
 
+#Maps
+gem 'geocoder'
+
 #Authetication
 gem 'devise'
 gem 'omniauth'
