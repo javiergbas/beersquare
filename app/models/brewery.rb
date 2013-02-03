@@ -13,7 +13,9 @@ class Brewery < ActiveRecord::Base
   end
 
   #Images
-  has_attached_file :photo, :styles => { :medium => "940x240", :small => "150x150>" },
+  has_attached_file :photo,
+                    :styles => { :medium => "940x240", :small => "150x150>" },
+                    :default_url =>  'brewery.jpeg',
                     :url  => "/assets/breweries/:id/:style/:basename.:extension",
                     :path => ":rails_root/public/assets/breweries/:id/:style/:basename.:extension"
 

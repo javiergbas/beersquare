@@ -3,7 +3,8 @@ function showMap(lat, long) {
     var myOptions = {
         zoom: 17,
         center: latlng,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        scrollwheel: false
     };
     var map = new google.maps.Map(document.getElementById("brew_map"), myOptions);
 
