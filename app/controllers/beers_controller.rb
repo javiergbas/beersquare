@@ -38,6 +38,7 @@ class BeersController < ApplicationController
   def edit
     @beer = Beer.find(params[:id])
     @user_id = @beer.user_id
+    @brewery_items = Brewery.all.map(&:name)
   end
 
   # POST /beers

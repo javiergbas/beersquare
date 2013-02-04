@@ -11,21 +11,19 @@
     </div>
   <% end %>
 
+
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
-  
   <div class="field">
     <%= f.label :country %>
     <%= select("beer", "country", Country.all {|c| [ c[0], c[1] ] }, {:include_blank => 'Select'}) %>
   </div>
-  
   <div class="field">
     <%= f.label :photo %><br />
     <%= f.file_field :photo %>
   </div>
-
   <div class="field">
     <%= f.label :title %><br />
     <%= f.text_field :title %>
@@ -35,8 +33,9 @@
     <%= f.text_area :description %>
   </div>
   <div class="field">
-    <%= f.label :brewery_id %><br />
-    <%= select("beer", "brewery_id", Brewery.all.collect {|b| [ b.name, b.id ] }, {:include_blank => 'Select'}) %>
+    <label> <%= t('common.brewery')  %></label>
+    <input data-provide="typeahead" data-items="8" data-source='<%=@brewery_items.to_json %>'>
+    <%#= select("beer", "brewery_id", Brewery.all.collect {|b| [ b.name, b.id ] }, {:include_blank => 'Select'}) %>
   </div>
   <div class="actions">
     <%= f.submit %>
