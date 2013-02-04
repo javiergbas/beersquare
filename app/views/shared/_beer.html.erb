@@ -1,25 +1,27 @@
 <div class="beer-wrapper">
-  <div class="beer">
-    <% if current_user_checks_beer(beer) -%>
-      <div class="check"></div>
-    <% end -%>
+  <div class="beer beer_<%= beer.id %>">
+    
+    <div class="check <%= 'hidden' unless current_user_checks_beer(beer) %>"></div>
     
     <div class="beer-hover">
       <div class="button-wrapper">
-        <% if current_user_checks_beer(beer) %>
+                
+        <div class="checked-buttons <%= 'hidden' unless current_user_checks_beer(beer) %>">
           <div class="button primary"><%= t'common.checked' %></div>
-          <%= link_to t('common.uncheck'), {:controller => "beers", :action => "uncheck", :id => beer.id}, :class => 'button red' %>
-        <% else %>
-          <%= link_to t('common.check'), {:controller => "beers", :action => "check", :id => beer.id}, :class => 'button primary' %>
-        <% end %>
+          <%= link_to t('common.uncheck'), {:controller => "beers", :action => "uncheck", :id => beer.id}, :data => {:remote => 'true'}, :class => 'button red' %>
+        </div> <!-- user_checks_beer -->
+        <div class="unchecked-buttons <%= 'hidden' if current_user_checks_beer(beer) %>">
+          <%= link_to t('common.check'), {:controller => "beers", :action => "check", :id => beer.id}, :data => {:remote => 'true'}, :class => 'button primary' %>
+        </div>
+        
       </div> <!-- button_wrapper -->
-      
       
       <div class="button-wrapper">
         <%= link_to t('common.view'), beer, :class => 'button secondary' %>
       </div> <!-- button_wrapper -->
       
     </div> <!-- .beer-hover -->
+    
     
     <div class="name">
       <% if beer_country(beer) %>

@@ -1,12 +1,11 @@
 
-<div class="beer row-fluid">
+<div class="beer beer_<%= @beer.id %> row-fluid">
   
   <div class="span8">
     <h1>
       <% if beer_country(@beer) %>
         <div class="flag flag-<%= beer_country(@beer).downcase %>"></div>
       <% end %>
-      
       <%= @beer.name %>
     </h1>
     
@@ -15,21 +14,25 @@
     <% end -%>
     
     <div class="button-wrapper">
-      <% if current_user_checks_beer(@beer) %>
-        <div class="button primary big"><%= t'common.checked' %></div>
-        <%= link_to t('common.uncheck'), {:controller => "beers", :action => "uncheck", :id => @beer.id}, :class => 'button red big' %>
-      <% else %>
-        <%= link_to t('common.check'), {:controller => "beers", :action => "check", :id => @beer.id}, :class => 'button primary big' %>
-      <% end %>
+      
+      <div class="checked-buttons <%= 'hidden' unless current_user_checks_beer(@beer) %>">
+        <div class="button primary"><%= t'common.checked' %></div>
+        <%= link_to t('common.uncheck'), {:controller => "beers", :action => "uncheck", :id => @beer.id}, :data => {:remote => 'true'}, :class => 'button red' %>
+      </div> <!-- user_checks_beer -->
+      <div class="unchecked-buttons <%= 'hidden' if current_user_checks_beer(@beer) %>">
+        <%= link_to t('common.check'), {:controller => "beers", :action => "check", :id => @beer.id}, :data => {:remote => 'true'}, :class => 'button primary' %>
+      </div>
+      
     </div> <!-- button_wrapper -->
      
     <div class="button-wrapper">
-      <% if current_user_likes_beer(@beer) %>
-        <div class="button secondary big"><%= t'common.liked' %></div>
-        <%= link_to t('common.unlike'), {:controller => "beers", :action => "unlike", :id => @beer.id}, :class => 'button red big' %>
-      <% else %>
-        <%= link_to t('common.like'), {:controller => "beers", :action => "like", :id => @beer.id}, :class => 'button secondary big' %>
-      <% end %>
+      <div class="liked-buttons <%= 'hidden' unless current_user_likes_beer(@beer) %>">
+        <div class="button secondary"><%= t'common.liked' %></div>
+        <%= link_to t('common.unlike'), {:controller => "beers", :action => "unlike", :id => @beer.id}, :data => {:remote => 'true'}, :class => 'button red' %>
+      </div> <!-- user_checks_beer -->
+      <div class="unliked-buttons <%= 'hidden' if current_user_likes_beer(@beer) %>">
+        <%= link_to t('common.like'), {:controller => "beers", :action => "like", :id => @beer.id}, :data => {:remote => 'true'}, :class => 'button secondary' %>
+      </div>
 
     </div> <!-- button_wrapper -->
     
