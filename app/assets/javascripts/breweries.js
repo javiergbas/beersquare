@@ -27,6 +27,8 @@ function showMap(lat, long) {
 }
 
 $(function(){
+
+    //Load Map
     var lat = $('#brew_lat').val();
     var lgt = $('#brew_lgt').val();
     if (lat && lgt)
