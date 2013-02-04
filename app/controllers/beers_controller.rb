@@ -26,7 +26,6 @@ class BeersController < ApplicationController
   # GET /beers/new.json
   def new
     @beer = Beer.new
-    @user_id = current_user.id if user_signed_in?
 
     respond_to do |format|
       format.html # new.html.erb
@@ -37,15 +36,15 @@ class BeersController < ApplicationController
   # GET /beers/1/edit
   def edit
     @beer = Beer.find(params[:id])
-    @user_id = @beer.user_id
   end
 
   # POST /beers
   # POST /beers.json
   def create
     @beer = Beer.new(params[:beer])
+    @beer.user_id = current_user.id if user_signed_in?
 
-    UserMailer.new_beer().deliver
+#    UserMailer.new_beer().deliver
 
     respond_to do |format|
       if @beer.save

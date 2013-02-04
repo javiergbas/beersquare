@@ -24,4 +24,8 @@ module BeersHelper
     current_user.checks_beers.select(:country).uniq(&:country).count
   end
   
+  def current_user_total_added_beers
+    Beer.where(:user_id => current_user.id).count
+  end
+  
 end

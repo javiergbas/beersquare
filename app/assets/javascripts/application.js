@@ -12,10 +12,10 @@
 
 $(function(){
   
-  $('.notice_wrapper').fadeIn().delay(3000).fadeOut();
+  $('.notice-wrapper').fadeIn().delay(5000).fadeOut();
   
-  $('.notice_wrapper .icon-remove').click(function(){
-    $('.notice_wrapper').fadeOut();
+  $('.notice-wrapper .icon-remove').click(function(){
+    $('.notice-wrapper').fadeOut();
   });
   
 });
