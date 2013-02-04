@@ -1,21 +1,22 @@
-<h1>
-  <%= link_to t('.add_brewery'), new_brewery_path, :class => 'button primary pull-right' %>
-  <%= t '.title' %>
-</h1>
+<div class="brewery">
+  <h1>
+    <%= link_to t('.add_brewery'), new_brewery_path, :class => 'button primary pull-right' %>
+    <%= t '.title' %>
+  </h1>
 
-<ul>
-<% @breweries.each do |brewery| %>
-  <li>
-    <%= link_to brewery.name, brewery %> (<%= brewery.country %>)
-  </li>
+  <ul>
+  <% @breweries.each do |brewery| %>
+    <li>
+      <%= link_to brewery.name, brewery %> (<%= brewery.country %>)
+    </li>
 
-  <!-- <tr>
-    <td><%= brewery.name %></td>
-    <td><%= brewery.country %></td>
-    <td><%= link_to 'Show', brewery %></td>
-    <td><%= link_to 'Edit', edit_brewery_path(brewery) %></td>
-    <td><%= link_to 'Destroy', brewery, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr> -->
-<% end %>
-</ul>
-
+    <!-- <tr>
+      <td><%= brewery.name %></td>
+      <td><%= brewery.country %></td>
+      <td><%= link_to 'Show', brewery %></td>
+      <td><%= link_to 'Edit', edit_brewery_path(brewery) %></td>
+      <td><%= link_to 'Destroy', brewery, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr> -->
+  <% end %>
+  </ul>
+</div>

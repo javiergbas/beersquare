@@ -1,13 +1,12 @@
 <div id="home">
   <h1><%= t '.title' %></h1>
 
-
   <h2>
     <%= link_to t('common.view_all'), beers_path, :class => 'pull-right' %>
     <%= t 'common.recently_added' %>
   </h2>
 
-  <div class="beer_list">
+  <div class="beer-list">
     <%= render :partial => 'shared/beer', :collection => @recent %>
   </div>
 

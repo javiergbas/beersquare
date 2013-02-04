@@ -87,32 +87,44 @@ class BeersController < ApplicationController
   end
   
   def like
-    @beer = Beer.find(params[:id])
-    current_user.likes_beers << @beer unless current_user.likes_beers.exists?(@beer.id)
-
-    redirect_to :action => "show", :id => @beer.id
+    if user_signed_in?
+      @beer = Beer.find(params[:id])
+      current_user.likes_beers << @beer unless current_user.likes_beers.exists?(@beer.id)
+      redirect_to :action => "show", :id => @beer.id
+    else
+      redirect_to :controller => 'devise/sessions', :action => "new"
+    end
   end
   
   def unlike
-    @beer = Beer.find(params[:id])
-    current_user.likes_beers.delete(@beer) if current_user.likes_beers.exists?(@beer.id)
-
-    redirect_to :action => "show", :id => @beer.id
+    if user_signed_in?
+      @beer = Beer.find(params[:id])
+      current_user.likes_beers.delete(@beer) if current_user.likes_beers.exists?(@beer.id)
+      redirect_to :action => "show", :id => @beer.id
+    else
+      redirect_to :controller => 'devise/sessions', :action => "new"
+    end
   end
   
   def check
-    @beer = Beer.find(params[:id])
-    current_user.checks_beers << @beer unless current_user.checks_beers.exists?(@beer.id)
-    flash[:notice] = 'Beer was successfully created.'
-
-    redirect_to :action => "show", :id => @beer.id
+    if user_signed_in?
+      @beer = Beer.find(params[:id])
+      current_user.checks_beers << @beer unless current_user.checks_beers.exists?(@beer.id)
+      flash[:notice] = 'Beer was successfully created.'
+      redirect_to :action => "show", :id => @beer.id
+    else
+      redirect_to :controller => 'devise/sessions', :action => "new"
+    end
   end
 
   def uncheck
-    @beer = Beer.find(params[:id])
-    current_user.checks_beers.delete(@beer) if current_user.checks_beers.exists?(@beer.id)
-
-    redirect_to :action => "show", :id => @beer.id
+    if user_signed_in?
+      @beer = Beer.find(params[:id])
+      current_user.checks_beers.delete(@beer) if current_user.checks_beers.exists?(@beer.id)
+      redirect_to :action => "show", :id => @beer.id
+    else
+      redirect_to :controller => 'devise/sessions', :action => "new"
+    end
   end
   
 end

@@ -2,9 +2,9 @@
 <input type="hidden" value="<%= @brewery.longitude %>" id="brew_lgt"/>
 
 
-<div class="row-fluid">
+<div class="brewery row-fluid">
   
-  <%= link_to t('common.edit'), edit_brewery_path(@brewery), :class => 'btn pull-right' %>
+  <%= link_to t('common.edit'), edit_brewery_path(@brewery), :class => 'button primary pull-right' %>
   <h1><div class="flag flag-<%= @brewery.country.downcase %>"></div><%= @brewery.name %></h1>
 
   <div class="brewery-cover row-fluid">
@@ -38,10 +38,19 @@
   </div>
 
   <h2>Cervezas de esta marca:</h2>
-
-  <div class="beer_list">
-    <%= render :partial => 'shared/beer', :collection => @beers %>
-  </div>
-  
+  <div class="beer-list">
+    <% unless @beers.blank? %>
+      <%= render :partial => 'shared/beer', :collection => @beers %>
+    <% else %>
+      <div class="blank">
+        <div class="title">
+          <%= t'.no_beers' %>
+        </div>
+        <p>
+          <%= t'.blank_text'%> <%= link_to t('common.add_beer'), new_beer_path %>
+        </p>
+      </div> <!-- .blank -->
+    <% end %>
+  </div> <!-- .beer_list -->
 
 </div>
