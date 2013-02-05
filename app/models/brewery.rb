@@ -9,7 +9,7 @@ class Brewery < ActiveRecord::Base
   after_validation :geocode
 
   def full_address
-    self.address+' '+self.city+' '+self.zip_code+' '+self.state
+    self.name+' '+(self.address||'')+' '+(self.city||'')+' '+(self.zip_code||'')+' '+(self.state||'')
   end
 
   #Images

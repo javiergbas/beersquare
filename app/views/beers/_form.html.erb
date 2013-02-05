@@ -11,7 +11,10 @@
     </div>
   <% end %>
 
-
+  <div class="field">
+    <%= f.label :brewery_name %><br />
+    <%= f.text_field :brewery_name, data: {autocomplete_source: '/breweries.js' } %>
+  </div>
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
@@ -32,12 +35,8 @@
     <%= f.label :description %><br />
     <%= f.text_area :description %>
   </div>
-  <div class="field">
-    <label> <%= t('common.brewery')  %></label>
-    <input data-provide="typeahead" data-items="8" data-source='<%=@brewery_items.to_json %>'>
-    <%#= select("beer", "brewery_id", Brewery.all.collect {|b| [ b.name, b.id ] }, {:include_blank => 'Select'}) %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+
+  <div class="form-actions">
+    <%= f.submit :class=>'btn btn-primary pull-right'%>
   </div>
 <% end %>

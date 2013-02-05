@@ -22,9 +22,22 @@ class Beer < ActiveRecord::Base
   def total_likes
     self.likes_users.count
   end
-  
+
   def total_checks
     self.checks_users.count
+  end
+
+  #
+  #Virtual properties
+  #
+
+  #Brewery_Name
+  def brewery_name
+    brewery.try(:name)
+  end
+
+  def brewery_name=(name)
+    self.brewery = Brewery.find_or_create_by_name(name) if name.present?
   end
 
 end

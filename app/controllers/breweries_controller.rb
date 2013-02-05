@@ -3,10 +3,12 @@ class BreweriesController < ApplicationController
   # GET /breweries.json
   def index
     @breweries = Brewery.all
+    @filter_breweries = Brewery.order(:name).where("name like ?", "%#{params[:term]}%")
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @breweries }
+      format.js { render json: @filter_breweries.map(&:name)}
     end
   end
 
